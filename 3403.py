@@ -18,6 +18,14 @@ class Solution(object):
         n = len(word)
         maxLen = n - numFriends + 1
         
+        for i, c in enumerate(word):
+            if c == largestChar:
+                possible = word[i:i+maxLen]
+                
+                ans = max(ans, possible)
+
+        return ans
+        
         # for r in range(n):
         #     ans = max(ans, word[l:r+1])
         #     # print(word[l:r+1])
@@ -33,14 +41,6 @@ class Solution(object):
         #             ans = max(ans, temp[left:len(temp)])
         #             # print(temp[left:len(temp)])
         #             left += 1
-        
-        for i, c in enumerate(word):
-            if c == largestChar:
-                possible = word[i:i+maxLen]
-                
-                ans = max(ans, possible)
-
-        return ans
 
 obj = Solution()
 print(obj.answerString("epbbppl", 2))
